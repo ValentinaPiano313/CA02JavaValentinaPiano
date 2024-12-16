@@ -25,10 +25,30 @@ public class CA02ValentinaPiano {
         int matrixOption=2;// variable that hold option for 2D Array
         
         try{ System.out.println("If you want to work with a 1D array, press 1 or if you want to work with 2D array, press 2.");// // Prompt the user to choose between 1D or 2D array
-            int userTypeArrayChoice = input.nextInt();// Read the user's choice as an integer
+            int userTypeArrayChoice = input.nextInt();// read the user's choice as an integer
            
-            // Check for user's choice and handle accordingly 
+            // check for user's choice and handle accordingly 
             if(userTypeArrayChoice == arrayOption){
+                 // Code for working with 1D array
+                System.out.println("You chose to work with 1D array.");
+                // code for task 1
+                System.out.println("Task1: Array Search - Find Repeated Element");
+                System.out.println("Enter the size of the array;");// prompt the user to enter the size of the array
+                int arrayLenght =input.nextInt();//get the array length from user input
+                System.out.println("Enter the array elements");//prompt the user to enter the array elements
+                userArray =new int[arrayLenght];//initialize the array with the specified length
+                userArray =ArrayOperations.populateArrayInputUser(arrayLenght);//call the method to populate the array based on user input
+                System.out.println("You array is: ");
+                ArrayOperations.displayArray(userArray);//display the array to the user
+                System.out.println("");
+                Integer repeatedElement = ArrayOperations.findFirstRepeatedElement(userArray);//call the method to find the first repeated element in the array
+                
+                if( repeatedElement!= null){// Check if a repeated element was found
+                     System.out.println("The first repeated element on the array is "+ repeatedElement); // Inform the user that a repated element was found and display it
+                     System.out.println("");
+                }else{
+                     System.out.println("No repeated element founded on this array."); //Inform the user that no repeated element was found
+                }
               
                 
             }else if(userTypeArrayChoice == matrixOption){
@@ -39,9 +59,9 @@ public class CA02ValentinaPiano {
             }
             
         }catch (Exception e) {
-            System.out.println("Invalid input. ");// Message to handle invalid input 
+            System.out.println("You pressed an incorrect key. The value must be an integer number: 1 or 2.");// message to handle invalid input 
         } finally {
-            input.close();// Close the Scanner object to avoid resource leaks
+            input.close();// close the Scanner object to avoid resource leaks
         }
     }
     
