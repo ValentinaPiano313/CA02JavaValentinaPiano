@@ -49,7 +49,7 @@ public class CA02ValentinaPiano {
                 }else{
                      System.out.println("No repeated element founded on this array."); //Inform the user that no repeated element was found
                 }
-              
+                
                 
             }else if(userTypeArrayChoice == matrixOption){
               
@@ -59,7 +59,7 @@ public class CA02ValentinaPiano {
             }
             
         }catch (Exception e) {
-            System.out.println("You pressed an incorrect key. The value must be an integer number: 1 or 2.");// message to handle invalid input 
+            System.out.println("You pressed an incorrect key. The value must be an integer number.");// message to handle invalid input 
         } finally {
             input.close();// close the Scanner object to avoid resource leaks
         }
