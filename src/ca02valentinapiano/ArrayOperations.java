@@ -9,6 +9,15 @@ import java.util.InputMismatchException;
  *
  * @author vale
  */
+
+
+//
+ //The ArrayOperations class provides utility methods for working with 1-dimensional arrays.
+ //Populate an array with user-provided integer values through input validation.
+ //Display the elements of an array in a readable format.
+ //find the first repeated element in an array 
+
+
 public class ArrayOperations {
     
      // method to populate an array based on user input lenght

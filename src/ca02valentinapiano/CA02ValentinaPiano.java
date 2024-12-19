@@ -11,6 +11,23 @@ import java.io.IOException;
  *
  * @author vale
  */
+//github link
+//https://github.com/ValentinaPiano313/CA02JavaValentinaPiano
+
+//The main program provides an interactive interface for the user to perform operationson either a 1D array or a 2D matrix. 
+//The program first prompts the user to choose between working with a 1D array or a 2D matrix. 
+//Based on the user's selection,the program offers different tasks and functionalities for each type of array.
+ //1D Array Operations**:
+ //The user is prompted to enter the size and elements of a 1D array.
+ //--Task 1: It searches for the first repeated element in the array and displays it if found.
+ //--Task 5: It performs a Bubble Sort on the array and displays the sorted array along with the number of swaps performed during the sort.
+ //    If no swaps were made, it indicates that the array was already sorted.
+ //2D Matrix Operations**:
+ // The user is prompted to input the number of rows and columns for a 2D matrix.
+ //--Task 3: It calculates and displays the sums of the main and secondary diagonals of the matrix (only works if the matrix is square).
+ //--Task 2: It generates and displays a multiplication table of the specified size.
+ //The program checks for user input errors and provides feedback if an invalid key is pressed or if the input is not an integer. 
+ 
 public class CA02ValentinaPiano {
 
     /**

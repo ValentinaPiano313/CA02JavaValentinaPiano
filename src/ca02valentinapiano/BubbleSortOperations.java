@@ -8,6 +8,12 @@ package ca02valentinapiano;
  *
  * @author vale
  */
+
+// The BubbleSortOperations class provides functionality for sorting a 1-dimensional array using the Bubble Sort algorithm.
+// It tracks both the sorted array and the number of swaps performed during the sorting process, encapsulating the results in an object.
+// This class is separated from ArrayOperations because sorting requires returning two values (the sorted array and the swap count),
+// and encapsulating these results in an object allows for better management and clarity.
+
 public class BubbleSortOperations {
     
     int[] sortedArray;// variable to store the sorted array after the bubble sort

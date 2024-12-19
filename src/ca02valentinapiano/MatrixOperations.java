@@ -8,6 +8,13 @@ import java.util.Scanner;
  *
  * @author vale
  */
+
+//The MatrixOperations class provides several methods for performing operations on 2D arrays (matrices)
+// Populates a 2D array (matrix) with user input.
+//Displays the elements of a 2D array (matrix) in a readable format. Each row of the matrix is printed on a new line with elements separated by commas.
+//Calculates and displays the sums of the main diagonal and secondary diagonal of a square matrix.
+//Generates and returns a multiplication table of a given size.
+
 public class MatrixOperations {
     
     //method to populate a 2D array
