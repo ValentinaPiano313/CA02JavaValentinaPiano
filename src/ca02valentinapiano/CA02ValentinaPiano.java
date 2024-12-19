@@ -21,7 +21,7 @@ public class CA02ValentinaPiano {
         Scanner input = new Scanner(System.in);// create a scanner object to read user input 
         int[][] userMatrix;//variable declaration to hold 2D array user input
         int[] userArray;//variable declaration to hold 1D array user input
-        int arrayLenght =0; //
+        int arrayLength =0; //
         int arrayOption=1;// variable that hold option for 1D Array
         int matrixOption=2;// variable that hold option for 2D Array
         int noswaps =0;
@@ -32,13 +32,14 @@ public class CA02ValentinaPiano {
             // check for user's choice and handle accordingly 
             if(userTypeArrayChoice == arrayOption){
                  // Code for working with 1D array
-                System.out.println("You chose to work with a 1D array. After entering the length and the array elements, Task 1 and Task 5 will be performed");
+                System.out.println("You chose to work with a 1D array");
+                System.out.println("");
                 // code for task 1
                 System.out.println("Enter the size of the array;");// prompt the user to enter the size of the array
-                arrayLenght =input.nextInt();//get the array length from user input
+                arrayLength =input.nextInt();//get the array length from user input
                 System.out.println("Enter the array elements");//prompt the user to enter the array elements
-                userArray =new int[arrayLenght];//initialize the array with the specified length
-                userArray =ArrayOperations.populateArrayInputUser(arrayLenght);//call the method to populate the array based on user input
+                userArray =new int[arrayLength];//initialize the array with the specified length
+                userArray =ArrayOperations.populateArrayInputUser(arrayLength);//call the method to populate the array based on user input
                 System.out.println("You array is: ");
                 ArrayOperations.displayArray(userArray);//display the array to the user
                 System.out.println("");
@@ -54,22 +55,47 @@ public class CA02ValentinaPiano {
                 }
                 // code for task 5
                 System.out.println("Task5: BobbleSort - SortingArray");
-                BubbleSortOperations sortResults = BubbleSortOperations.bubbleSort(userArray);
-                int swaps = sortResults.swaps;
-                if (swaps == noswaps){
-                    System.out.println("The array is already sorted");
+                System.out.println("Enter the size of the array;");// prompt the user to enter the size of the array
+                arrayLength =input.nextInt();//get the array length from user input
+                System.out.println("Enter the array elements");//prompt the user to enter the array elements
+                //userArray =new int[arrayLength];//initialize the array with the specified length
+                userArray =ArrayOperations.populateArrayInputUser(arrayLength);//call the method to populate the array based on user input
+                System.out.println("You array is: ");
+                ArrayOperations.displayArray(userArray);//display the array to the user
+                BubbleSortOperations sortResults = BubbleSortOperations.bubbleSort(userArray); //perform the Bubble Sort operation and capture the result
+                int swaps = sortResults.swaps;//retrieve the number of swaps performed during sorting
+                if (swaps == noswaps){//check if the array was already sorted
+                    System.out.println("The array is already sorted");//if no swaps were made, the array was already sorted
                     System.out.println("");
-                }else{
+                }else{//otherwise, display the sorted array and the number of swaps made
                      System.out.println("Sorted Array: " + Arrays.toString(sortResults.sortedArray));
                      System.out.println("Number of Swaps: " + sortResults.swaps); 
                      System.out.println("");
                 }
                 
             }else if(userTypeArrayChoice == matrixOption){
-              
-                
+                System.out.println("You chose to work with a 2D array.");
+                // code for task 3
+                System.out.println("Task3: Diagonal Sum of a Matrix");
+                System.out.println("Insert the number of rows of the matrix;");//prompt the user to input the number of rows for the matrix
+                int rows =input.nextInt();//read the number of rows from user input
+                System.out.println("Insert the number of columns of the matrix;");//prompt the user to input the number of columns for the matrix
+                int cols =input.nextInt();//read the number of columns from user input
+                //userMatrix= new int[rows][cols];//initialize the matrix with the given dimensions
+                userMatrix=MatrixOperations.populateMatrix(rows, cols);//call the method to populate the array 
+                MatrixOperations.displayMatrix(userMatrix);//display the array to the user
+                MatrixOperations.diagonalSum(userMatrix);//call mathod that calculate main and secondary diagonal and display them
+                System.out.println("");
+                // code for task 2
+                System.out.println("Task2 : Multiplication Table");
+                System.out.println("Insert the size of the multiplication table");//prompt the user to input the size of the multiplication table 
+                int size =input.nextInt();//read the size from user input
+                int[][]table= new int[size][size];//initialize the matrix with the given dimension
+                table=MatrixOperations.multiplicationTable(size);// the the method to calculate multiplication table and save the result on a 2Darray
+                MatrixOperations.displayMatrix(table);//disply the matrix to the user
+               
             }else {
-                System.out.println("You pressed an incorrect key.Please, press 1 if you want to work with 1D array or press 2 if you want ro waork with 2D array.");
+                System.out.println("You pressed an incorrect key.Please, press 1 if you want to work with 1D array or press 2 if you want ro work with 2D array.");
             }
             
         }catch (Exception e) {

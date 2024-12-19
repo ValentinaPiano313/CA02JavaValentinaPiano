@@ -27,7 +27,6 @@ public class ArrayOperations {
            System.out.println("Invalid input! Please enter only integer values.");//prompt an error message to the user
            return null;// return null if invalid input is encountered
         }finally{
-            input.close();//close the Scanner object to avoid resource leaks
         }
     }
     
