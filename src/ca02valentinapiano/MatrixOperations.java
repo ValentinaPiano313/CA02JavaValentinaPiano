@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ca02valentinapiano;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
@@ -14,6 +15,8 @@ import java.util.Scanner;
 //Displays the elements of a 2D array (matrix) in a readable format. Each row of the matrix is printed on a new line with elements separated by commas.
 //Calculates and displays the sums of the main diagonal and secondary diagonal of a square matrix.
 //Generates and returns a multiplication table of a given size.
+//Generate an array containing the spiral traversal of a matrix
+
 
 public class MatrixOperations {
     
@@ -61,6 +64,7 @@ public class MatrixOperations {
      return myMatrix; //return the array 
     }
     
+    
     //method to calculate and display the sums of the main diagonal and secondary diagonal of a given 2D square matrix
     static void diagonalSum(int[][] myMatrix){
         int main=0; //initialize variables to store sums of the main diagonal
@@ -93,8 +97,74 @@ public class MatrixOperations {
             for (int j=0; j < size; j++ ){// Loop through each column of the current row                0,0-- 1*1=1     |            1,0   --   2*1=2
                 table[i][j] = (i+1) * (j +1);                                                         //0,1-- 1*2=2     |            1,1   --   2*2=4 
             }                                                                                         //0,2-- 1*3=3     |            1,2   --   2*3=6
-        
         }
         return table;// return the multiplication table
     }
-}
+    
+    //method to print a matrix in spiral order 
+    //It divide the matrix into layers or. It starts with the outermost boundary and prints its elements, 
+    //then progressively moves inward to handle the inner layers until all elements are printed.
+    
+    public static int[] spiralTraversal(int[][] myMatrix) {
+    
+    if (myMatrix.length == myMatrix[0].length) {//check if the matrix is square (number of rows equals number of columns)
+        int[] spiralTraversal = new int[myMatrix.length * myMatrix[0].length];//initialize the result array to store the spiral traversal elements
+        int counter = 0; //counter to track the position in the result array
+
+        int left = 0;  // Initialize variables to track the boundaries of the matrix
+        int right = myMatrix[0].length - 1; 
+        int top = 0; 
+        int bottom = myMatrix.length - 1; 
+
+        
+        while (top <= bottom && left <= right) {// Loop until all elements in the matrix are traversed in a spiral order
+            
+            for (int i = left; i <= right; ++i) {// traverse the top row from left to right
+                spiralTraversal[counter++] = myMatrix[top][i]; //add the element to the array
+            }
+            top++; //move the top boundary downwards
+
+            for (int i = top; i <= bottom; ++i) {//traverse the right column from top to bottom
+                spiralTraversal[counter++] = myMatrix[i][right]; //add the element to the array
+            }
+            right--; //move the right boundary leftwards
+            
+            if (top <= bottom) {//check if there are rows remaining between the updated top and bottom boundaries
+                
+                for (int i = right; i >= left; --i) {//traverse the bottom row from right to left
+                    spiralTraversal[counter++] = myMatrix[bottom][i]; //add the element to the array
+                }
+                bottom--; //move the bottom boundary upwards
+            }
+
+            if (left <= right) {//check if there are columns remaining between the updated left and right boundaries
+                for (int i = bottom; i >= top; --i) {//traverse the left column from bottom to top
+                    spiralTraversal[counter++] = myMatrix[i][left]; //add the element to the array
+                }
+                left++; //move the left boundary rightwards
+            }
+        }
+        return spiralTraversal;//the spiarlTraversal array
+    }
+
+    
+    return null;// Return an empty array if the matrix is not square
+    }
+   
+}   
+       //row 4   col 4 
+    
+    
+//                left           right
+ //                 0            cols-1
+ //       top 0 // 0,0  0,1  0,2  0,3
+                // 1,0  1,1  1,2  1,3
+                // 2,0  2,1  2,2  2,3
+ //bottom  row-1// 3,0  3,1  3,2  3,3  (3)
+ //                               (3)   
+    
+    //spiral--> 0,0 - 0,1 - 0,2 - 0,3 - 1,3 - 2,3 - 3,3 - 3,2 - 3,1 - 3,0 - 2,0 - 1,0 - 1,1 - 1,2 - 2,2 - 2,1    
+    //length = col*row            
+    
+    
+

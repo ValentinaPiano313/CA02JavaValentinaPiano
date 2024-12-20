@@ -27,7 +27,8 @@ import java.io.IOException;
  //--Task 3: It calculates and displays the sums of the main and secondary diagonals of the matrix (only works if the matrix is square).
  //--Task 2: It generates and displays a multiplication table of the specified size.
  //The program checks for user input errors and provides feedback if an invalid key is pressed or if the input is not an integer. 
- 
+ // Task 4: Generate and display an array containing the spiral traversal of a matrix
+
 public class CA02ValentinaPiano {
 
     /**
@@ -75,7 +76,7 @@ public class CA02ValentinaPiano {
                 System.out.println("Enter the size of the array;");// prompt the user to enter the size of the array
                 arrayLength =input.nextInt();//get the array length from user input
                 System.out.println("Enter the array elements");//prompt the user to enter the array elements
-                //userArray =new int[arrayLength];//initialize the array with the specified length
+                userArray =new int[arrayLength];//initialize the array with the specified length
                 userArray =ArrayOperations.populateArrayInputUser(arrayLength);//call the method to populate the array based on user input
                 System.out.println("You array is: ");
                 ArrayOperations.displayArray(userArray);//display the array to the user
@@ -108,8 +109,23 @@ public class CA02ValentinaPiano {
                 System.out.println("Insert the size of the multiplication table");//prompt the user to input the size of the multiplication table 
                 int size =input.nextInt();//read the size from user input
                 int[][]table= new int[size][size];//initialize the matrix with the given dimension
-                table=MatrixOperations.multiplicationTable(size);// the the method to calculate multiplication table and save the result on a 2Darray
+                table=MatrixOperations.multiplicationTable(size);//the method to calculate multiplication table and save the result on a 2Darray
                 MatrixOperations.displayMatrix(table);//disply the matrix to the user
+                //code for Task 4
+                System.out.println("Task 4: Spiral");
+                System.out.println("Insert the number of rows of the matrix:");
+                rows = input.nextInt();
+                System.out.println("Insert the number of columns of the matrix:");
+                cols = input.nextInt();
+                userMatrix = new int[rows][cols];
+                userMatrix = MatrixOperations.populateMatrix(rows, cols); //populate the matrix
+                MatrixOperations.displayMatrix(userMatrix); //display the matrix
+                int[] spiral = MatrixOperations.spiralTraversal(userMatrix);//cal the method to perform the spiral traversal
+                 if (spiral == null) {
+                   System.out.println("The matrix is not square. Please insert a square matrix to calculate the spiral traversal.");
+                } else {
+                    System.out.println("The spiral traversal of your matrix is: " + Arrays.toString(spiral));
+                }
                
             }else {
                 System.out.println("You pressed an incorrect key.Please, press 1 if you want to work with 1D array or press 2 if you want ro work with 2D array.");
